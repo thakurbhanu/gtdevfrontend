@@ -1,0 +1,34 @@
+<html>
+  <head>
+    <script
+      type="text/javascript"
+      src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"
+    ></script>
+    <script>
+      (function ($) {
+        $.fn.extend({
+          display: function (name) {
+            $("#div1").html("Good morning " + name + "!");
+          },
+        });
+      })
+      (jQuery);
+      $(document).ready(function () {
+        $("#b1").click(function () {
+          var name = $("#name").val();
+          $().display(name);
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <h1>JQuery Function Calling</h1>
+    <label> Write your name </label>&nbsp;<input
+      type="text"
+      id="name"
+      size="20"
+    />
+    <input type="button" id="b1" value="click" />
+    <div id="div1" style="padding: 20px"></div>
+  </body>
+</html>

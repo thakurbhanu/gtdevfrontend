@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FANCY NAME</title>
+    <style>
+      body {
+        text-align: center;
+        background-color: #f8f1ff;
+        height: 90vh;
+      }
+      #output {
+        font-size: 50px;
+        color: #52489c;
+        letter-spacing: 70px;
+        line-height: 150px;
+        text-align: center;
+        font-family: monospace;
+        margin-top: 40px;
+      }
+      input {
+        height: 40px;
+        width: 500px;
+        border: none;
+        padding: 10px;
+        font-size: 25px;
+        margin-bottom: 50px;
+      }
+      h1 {
+        font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
+          sans-serif;
+        font-size: 70px;
+        color: #52489c;
+      }
+      button {
+        height: 40px;
+        width: 200px;
+        margin: 30px;
+        background-color: #1b998b;
+        border: transparent;
+        color: #fff;
+        font-size: 20px;
+        border-radius: 10px;
+        font-weight: bold;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Name Style</h1>
+    <form action="">
+      <input id="nameInput" type="text" placeholder="Enter Your Name Here" />
+      <br />
+
+      <button
+        style="float: left; position: relative; left: 620px"
+        onclick="reset()"
+      >
+        Reset
+      </button>
+    </form>
+    <button id="crtbtn" onclick="createDesign()">Create</button>
+
+    <div id="output"></div>
+    <script>
+      //let a = document.getElementById("nameInput").value;
+      //let alen = a.length;
+      function reset() {
+        document.getElementById("output").innerHTML = "";
+      }
+
+      function createDesign() {
+        let a = document.getElementById("nameInput").value;
+        let alen = a.length;
+        //console.log(a);
+        let b = a.split("");
+
+        b.push("&#8727");
+        b.unshift("&#8727");
+        //console.log(b);
+        //console.log(alen);
+        let star = "";
+
+        for (let i = 1; i <= alen + 2; i++) {
+          star += "&#8727";
+        }
+        star += "<br/>";
+        b.forEach((element) => {
+          star += element;
+        });
+        star += "<br/>";
+        for (let i = 1; i <= alen + 2; i++) {
+          star += "&#8727";
+        }
+
+        if (a != 0) {
+          document.getElementById("output").innerHTML = star;
+        }
+      }
+    </script>
+  </body>
+</html>

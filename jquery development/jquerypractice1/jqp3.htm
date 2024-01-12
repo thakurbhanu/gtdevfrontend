@@ -1,0 +1,38 @@
+<html>
+  <head>
+    <script
+      type="text/javascript"
+      src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"
+    ></script>
+    <script>
+      $(document).ready(function () {
+        $("#b1").click(function () {
+          var txt = $("#txt").val();
+          var dataString = { data: txt };
+          $.ajax({
+            url: "http://localhost/demo_function_call/ comman_function.php?action=factorial",
+            type: "POST",
+            cache: true,
+            dataType: "html",
+            data: dataString,
+            timeout: 120000,
+            error: function () {
+              alert("something went wrong while trying to verify email-id");
+            },
+            success: function (str) {
+              $("#div1").html(
+                "<br/>Fatorial of " + txt + " is <br/><br/>" + str
+              );
+            },
+          });
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <h1>Ajax calling to get data from php function</h1>
+    <input type="text" id="txt" size="20" />
+    <input type="button" id="b1" value="click" />
+    <div id="div1"></div>
+  </body>
+</html>

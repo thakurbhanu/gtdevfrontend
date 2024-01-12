@@ -1,0 +1,67 @@
+.bg-signup{
+    background-image:linear-gradient(black,rgb(6, 0, 128),black) ;
+    background-size: cover;
+    height: 100vh;
+    text-align: center;
+    font-family:sans-serif
+    ;
+}
+.signup-card{
+    color: white;
+    background-image:linear-gradient(black,rgb(6, 0, 128),black) ;
+    width: 300px;
+    height: 500px;
+    margin-top: 50px;
+    border-radius: 10px;
+    box-shadow: 5px 20px 50px black;
+
+}
+.flex-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+.buton{
+    width: 60%;
+	height: 40px;
+	margin: 10px auto;
+	justify-content: center;
+	color: #fff;
+	background: #573b8a;
+	font-size: 1em;
+	font-weight: bold;
+	margin-top: 20px;
+    border: none;
+	border-radius: 5px;
+	
+	
+}
+input{
+    width: 60%;
+	height: 20px;
+	background: #e0dede;
+	justify-content: center;
+	display: flex;
+	margin: 20px auto;
+	padding: 10px;
+	border: none;
+	outline: none;
+	border-radius: 5px;
+}
+.login-card{
+    background-color: #e0dede;
+    margin-top: 100px;
+    height: 60px;
+    border-radius: 60% / 80%;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    
+    height: 50px;
+    
+}
+h3{
+    color: rgb(68, 0, 255);
+    padding: 15px;
+    font-size: 17px;
+
+}

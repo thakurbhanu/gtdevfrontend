@@ -1,0 +1,407 @@
+.t-logo{
+  margin: 15px;
+  color: black;
+  height: 40px;
+}
+.nav-link{
+  font-family: serif;
+  font-size: 20px;
+  margin: 10px;
+  font-weight: bold;
+}
+.navbar{
+  box-shadow: 3px 3px 40px black;
+}
+
+.top-section-info{
+  font-family: serif;
+  font-weight: bold;
+  margin-left: 100px;
+  text-shadow: 3px 1px 7px black;
+}
+.require{
+  background-color: #12a339;
+  color: white;
+}
+.gardner{
+  color: white;
+  background-color:#022e0e ;
+}
+.top-sec-button{
+  font-weight: bold;
+  width: 100px;
+  font-size: 10px;
+  margin-left: 140px;
+  border-color: #022e0e;
+  border-radius: 3px;
+}
+.top-sec-ayc-card{
+  background-image: url(ayc.png);
+  background-size: cover;
+  height: 200px;
+  box-shadow: rgba(5, 5, 5, 2.75) 9.95px 5.95px 7.6px;
+  border-radius: 30px;
+  box-shadow: green 0px 1px 3px 0px, green 0px 0px 0px 1px, rgba(5, 5, 5, 2.75) 9.95px 5.95px 7.6px;  
+}
+.top-sec-pl-card{
+  background-image: url(planning-landscape.png);
+  background-size: cover;
+  height: 200px;
+  box-shadow: rgba(5, 5, 5, 2.75) 9.95px 5.95px 7.6px;
+  border-radius: 30px;
+  box-shadow: green 0px 1px 3px 0px, green 0px 0px 0px 1px, rgba(5, 5, 5, 2.75) 9.95px 5.95px 7.6px;
+}
+.top-sec-gg-card{
+  background-image: url(garage-grass.png);
+  background-size: cover;
+  height: 200px;
+  box-shadow: rgba(5, 5, 5, 2.75) 9.95px 5.95px 7.6px;
+  border-radius: 30px;
+  box-shadow: green 0px 1px 3px 0px, green 0px 0px 0px 1px, rgba(5, 5, 5, 2.75) 9.95px 5.95px 7.6px;
+}
+.top-sec-cc-card{
+  background-image: url(cultivate-cleaning.png);
+  background-size: cover;
+  height: 200px;
+  box-shadow: rgba(5, 5, 5, 2.75) 9.95px 5.95px 7.6px;
+  border-radius: 30px;
+  box-shadow: green 0px 1px 3px 0px, green 0px 0px 0px 1px, rgba(5, 5, 5, 2.75) 9.95px 5.95px 7.6px;
+}
+.top-sec-ayc-card-info{
+  background-color: white;
+  font-family: serif;
+  padding: 20px;
+  height: 75px;
+  box-shadow: 3px 3px 20px rgb(1, 80, 1);
+  border-top-left-radius: 30px;
+  border-bottom-left-radius: 30px;
+  border-bottom-right-radius: 30px;
+}
+.ayc-name{
+  font-weight: 800;
+  color: black;
+}
+#aboutSection{
+  background-color: #000000;
+  background-size: cover;
+
+}
+.about-top-card{
+  text-align: center;
+}
+.about-head{
+  color: #62a312;
+  font-weight: 900;
+  text-shadow: -2px 3px 3px white ; 
+}
+.about-para{
+  color: white;
+}
+.about-gif{
+  width: 100%;
+  box-shadow: white 0px 2px 4px 0px, white 0px 0px 0px 4px;
+  border-top-right-radius: 187px;
+  border-bottom-left-radius: 185px;
+}
+.about-info-top-head{
+  margin-top: 20px;
+  padding-top: 20px;
+}
+.wtg-head{
+  color: #43720a;
+  font-weight: bold;
+}
+.about-info-top-name{
+  color: white;
+  font-weight: bold;
+  
+}
+.about-hline{
+  height: 5px;
+  background-color: #013c11;
+  border: none;
+}
+.about-info-points{
+  background-image: url(gardenpic/aboutlist.png);
+  background-size: cover;
+  max-width: 100%;
+  padding-top: 1px;
+  padding-bottom: 2px;
+  padding-left: 30px;
+  padding-right: px;
+  margin-top: 40px;
+
+}
+.about-info-line{
+  margin: 37px;  
+}
+.record-card1{
+  background-image: url(gardenpic/about1.png);
+  background-size:cover;
+  height: 100%;
+  text-align: center;
+  margin: 18px;
+}
+.record-name{
+  color: #7db114;
+  font-size: 17px;
+  font-weight: bold;
+  padding-top: 65px;
+  padding-right: 9px;
+  padding-bottom: 50px;
+}
+.record-card2{
+  background-image: url(gardenpic/about2.png);
+  background-size:cover;
+  height: 100%;
+  text-align: center;
+  margin: 18px;
+}
+
+.record-card3{
+  background-image: url(gardenpic/about3.png);
+  background-size:cover;
+  height: 100%;
+  text-align: center;
+  margin: 18px;
+}
+
+.record-card4{
+  background-image: url(gardenpic/about4.png);
+  background-size:cover;
+  height: 100%;
+  text-align: center;
+  margin: 18px;
+}
+.big-hr{
+  height: 2px;
+  background-color: #77c81b;
+  border: none;
+  margin: 20px;
+}
+.service-top-sec{
+  text-align: center;
+}
+.service-top-sec-head{
+  color: #7db114;
+  font-weight: bold;
+}
+.service-top-sec-line{
+  color: #7db114;
+  font-weight: 500;
+  font-size: 25px;
+}
+.service-card{
+  text-align: center;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  padding: 20px;
+  margin: 10px;
+  padding-right: 20px;
+}
+.service-img{
+  height:170px;
+  box-shadow: green 0px 0.2px 1px 0px, green 0px 0px 0px 0.3px;
+  border-radius: 100px;
+  margin: 10px;
+  margin-right: 20px;
+}
+.service-head{
+  margin-top: 10px;
+  font-size: 20px;
+  font-weight: 600;
+}
+.service-para{
+  margin-top: 20px;
+  font-size: 13px;
+}
+.projects-top-info-card{
+  background-color: #000000;
+  background-size: cover;
+  text-align: center;
+  padding: 20px;
+
+}
+.projects-head{
+  color: #7ec739;
+  font-weight: bold;
+}
+.projects-head-line{
+  color: #7ec739;
+  font-size: 22px;
+}
+.project-button{
+  border-color: #7ec739;
+  color: #7ec739;
+  background-color: transparent;
+  border-width: 1px;
+  padding-left: 20px;
+  padding-right: 20px;
+  border-radius: 5px;
+}
+.project-img{
+  margin-top: 25px;
+}
+.team-mem-head-sec{
+  text-align: center;
+}
+.team-mem-head{
+  color: #7baa0f;
+  font-weight: bold;
+}
+
+.team-mem-card{
+  text-align: center;
+  padding: 30px;
+  border: solid;
+  border-width: 5px;
+  border-color: #023313;
+  border-radius: 20px;
+  
+}
+.mem-name{
+  margin: 10px;
+}
+.mem-info{
+  margin: 10px;
+  font-size: 13px;
+}
+.mem-lm-btn{
+  margin: 10px;
+  background-color: #7baa0f;
+  color: white;
+  border-radius: 3px;
+  text-decoration: underline;
+  font-size: 12px;
+  width:110px;
+  border: none;
+  height: 30px;
+
+  
+}
+.team-img{
+  height: 200px;
+  border-radius: 20px;
+}
+#contactSection{
+  background-image: linear-gradient(to top right, rgb(48, 109, 7), rgb(3, 46, 9));
+  background-size: cover;
+}    
+.chat-sec-card{
+  background-color: #000000;
+  background-size: cover;
+  padding-top: 60px;
+  padding-bottom: 60px;
+  padding-left: 40px;
+  padding-right:40px ;
+  margin-top: 30px;
+  
+}
+.chat-head{
+  color: white;
+}
+.chat-para{
+  color: white;
+}
+.contact-form-sec{
+  background-color: white;
+  background-size: cover;
+  margin-left: 0px;
+  margin-top: 30px;
+  
+ 
+}
+.contact-form-head{
+  font-weight: 900;
+  margin: 30px;
+  text-align: center;
+
+}
+input{
+  width: 90%;
+  height: 35px;
+  padding: 15px;
+  background-color: #dfe3e1;
+  border: none;
+  margin-left: 10px;
+  margin-left: 20px;
+}
+textarea{
+  width: 90%;
+  padding: 15px;
+  margin-left: 10px;
+  margin-left: 20px;
+  background-color: #dfe3e1;
+  border: none;
+}
+.sub-btn{
+  width: 110px;
+  height: 35px;
+  text-align: center;
+  padding: 5px;
+  border-radius: 20px;
+  background-color: #7baa0f;
+  color: white;
+  font-weight: bold;
+}
+.fotter-sec{
+  background-color: black;
+  background-size: cover;
+}
+.fotter-left-card{
+  margin: 10px;
+  padding: 20px;
+}
+.fotter-logo{
+  width: 150px;
+  margin-bottom: 20px;
+}
+.fotter-sec-info{
+  color: white;
+  font-size: 15px;
+}
+.fotter-map{
+  margin: 20px;
+  width: 600px;
+  padding-top: 20px;
+}
+.fotter-right-card{
+  margin: 10px;
+  padding: 20px;
+  
+}
+.fotter-contact-us{
+  color: white;
+  font-size: 20px;
+  margin-bottom: 0px;
+  margin-left: 50px;
+}
+.contact-line{
+  background-color: white;
+  height: 2px;
+  border: none;
+  width: 100px;
+  margin-top: 2px;
+  margin-left: 50px;
+}
+.c-logo{
+  color: white;
+  margin: 5px;
+}
+.c-name{
+  color: white;
+  margin: 5px;
+  margin-left: 10px;
+}
+.cr-sec{
+  text-align: center;
+}
+.cr-year{
+  color: white;
+}
+.cr-name{
+  color: #54ff4f;
+  text-decoration: underline;
+}
+a.one:link {color:#ff0000;}
+a.one:visited {color:#0000ff;}
+a.one:hover {color:#ffcc00;}

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .dropdown-sec{
+            display: inline-block;
+            position: relative;
+        }
+        
+        button{
+            background-color: aqua;
+            color: red;
+            font-size: 25px;
+            height: 50px;
+            width: 200px;
+        }
+        .dropdown-sec:hover button{
+            background-color: red;
+            color: aqua;
+        }
+        .drop-list{
+            position: absolute;
+            background-color: bisque;
+            width:80px;
+            display: none;
+            
+
+
+        }
+        .dropdown-sec:hover .drop-list{
+            display: block;
+        }
+        a{
+            display: block;
+            padding: 10px;
+            text-decoration: none;
+
+        }
+        a:hover{
+            color: white;
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+    <h1>
+        perspiciatis unde omnis iste natus 
+    </h1>
+    <p>
+        voluptatem accusantium doloremque laudantium, 
+        totam rem aperiam, eaque ipsa quae ab illo inventore 
+        veritatis et quasi architecto beatae vitae dicta sunt explicabo.
+    </p>
+    <div class="dropdown-sec">
+        <button >DROPDOWN</button>
+        <div class="drop-list">
+            <a href="#">item 1</a>
+            <a href="#">item 2</a>
+            <a href="#">item 3</a>
+        </div>
+    </div>
+    <p>
+        voluptatem accusantium doloremque laudantium, 
+        totam rem aperiam, eaque ipsa quae ab illo inventore 
+        veritatis et quasi architecto beatae vitae dicta sunt explicabo.
+    </p>
+</body>
+</html>

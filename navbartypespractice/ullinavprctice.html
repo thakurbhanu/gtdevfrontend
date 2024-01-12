@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        li{
+            list-style-type: none;
+        }
+        .menu1{
+                
+               
+                width:1000px;
+				
+				margin: auto;
+                
+				text-align:center;
+				position: relative;
+				list-style:none;
+                
+
+        }
+        .menu1 > li{
+            float: left;
+            display: block;
+            width: 230px;
+            line-height: 50px;
+            margin: 5px;
+            background-color:aqua;
+        }
+        
+        a {
+            text-decoration: none;
+            color: black;
+            font-size: 30px;
+        }
+        
+        .menu1 li:hover{
+            background-color: red;
+        }
+        .menu1 li:hover a{
+            color:#fff;
+        }
+        
+        
+        .menu2 li{
+            display: none;
+        }
+        .menu1 li:hover .menu2 > li {
+            display: block;
+            
+        }
+        .menu3 >li{
+            display: none;
+        
+
+        }
+        .menu2 li:hover .menu3 > li{
+            display: block;
+            
+            
+        }
+    </style>
+</head>
+<body>
+    <ul class="menu1">
+        <li><a href="#">Home</a></li>
+        <li><a href="#">About</a>
+            <ul class="menu2">
+                <li><a href="#">about 1</a></li>
+                <li><a href="#">about 2</a></li>
+                <li><a href="#">about 3</a>
+                    <ul class="menu3">
+                        <li><a href="#">TOP</a></li>
+                        <li><a href="#">CENTER</a></li>
+                        <li><a href="#">BOTTOM</a></li>
+                    </ul></li>
+                <li><a href="#">about 4</a></li>
+            </ul>	
+
+        </li>
+        <li><a href="#">Service</a></li>
+        <li><a href="#">Contact</a></li>
+    </ul>
+    
+</body>
+</html>

@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width, initial-scale=1.0" />
+    <script
+      src="https://kit.fontawesome.com/ce7a0231d9.js"
+      crossorigin="anonymous"
+    ></script>
+    <title>form validation (realtime error show)</title>
+    <style>
+      .bg-signup {
+        background-image: linear-gradient(#696969, white, #696969);
+        background-size: cover;
+        height: 100vh;
+        text-align: center;
+        font-family: sans-serif;
+        color: aqua;
+      }
+      .signup-card {
+        color: white;
+        background-color: #fff;
+
+        width: 500px;
+        height: 710px;
+        margin-top: 50px;
+        border-radius: 10px;
+        box-shadow: 5px 20px 50px black;
+      }
+      .flex-container {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+      }
+      .buton {
+        width: 40%;
+        height: 40px;
+        margin-top: 20px;
+        margin-left: 40px;
+        justify-content: center;
+        color: #fff;
+        background: blueviolet;
+        font-size: 1em;
+        font-weight: bold;
+        margin-top: 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+      input {
+        width: 40%;
+        height: 20px;
+        background: #e0dede;
+        display: flex;
+        margin-top: 10px;
+        margin-left: 20px;
+        padding: 10px;
+        border: none;
+        outline: none;
+        border-radius: 5px;
+        display: inline;
+      }
+      span {
+        color: rgb(142, 0, 0);
+        margin: 5px;
+        font-size: 12px;
+      }
+      .tc {
+        position: relative;
+        left: -25%;
+        top: 20px;
+        font-size: 12px;
+      }
+      #checkBox {
+        position: relative;
+        left: -8%;
+        top: 20px;
+        height: 15px;
+      }
+      label {
+        display: inline;
+        color: black;
+      }
+      #genderM {
+        height: 15px;
+        position: relative;
+        left: 50px;
+      }
+      #genderF {
+        height: 15px;
+        position: relative;
+        left: -115px;
+      }
+      .cmale {
+        position: relative;
+        left: -35px;
+      }
+      .cfemale {
+        position: relative;
+        left: 250px;
+        top: -25px;
+      }
+      select {
+        margin: 10px 0px 20px 5px;
+      }
+      #chxErr {
+        position: relative;
+        top: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="bg-signup flex-container">
+      <div class="signup-card">
+        <h1 class="sign-head" style="color: blueviolet">Sign up</h1>
+        <form action="" target="" method="">
+          <input
+            oninput="validateFname()"
+            id="firstName"
+            type="text"
+            name="fname"
+            placeholder="First name"
+          />
+          <br />
+          <span id="fnameErr"></span> <br />
+          <input
+            oninput="validateLname()"
+            id="lastName"
+            type="text"
+            name="lname"
+            placeholder="Last name"
+          /><br /><span id="lnameErr"></span><br />
+          <input
+            oninput="validatePhone()"
+            id="phoneNumber"
+            type="text"
+            name="phone"
+            placeholder="Phone Number"
+          /><br /><span id="numberErr"></span><br />
+          <input
+            oninput="validateEmail()"
+            id="emailId"
+            type="email"
+            name="email"
+            placeholder="Email"
+          /><br /><span id="emailErr"></span> <br />
+          <label class="cityc" for="city">Select your City</label>
+          <select name="cityname" id="city">
+            <option value="Bhind">Bhind</option>
+            <option value="Morena">Morena</option>
+            <option value="gwalior">Gwalior</option>
+          </select>
+          <br />
+          <input
+            oninput="validatePass()"
+            id="passwordF"
+            type="password"
+            name="pswd"
+            placeholder="Password"
+          /><br /><span id="passwordErr"></span><br />
+          <input
+            oninput="validatePassC()"
+            id="passwordC"
+            type="password"
+            name="cpswd"
+            placeholder="Confirm Password"
+          /><br /><span id="cpasswordErr"></span><br />
+          <input type="radio" name="gender" id="genderM" />
+          <label class="cmale" for="genderM">Male</label>
+          <input type="radio" name="gender" id="genderF" />
+          <label class="cfemale" for="genderF">Female</label>
+          <input type="checkbox" id="checkBox" />
+          <label class="tc" for="checkBox"> Terms & Conditions</label
+          ><span id="chxErr"></span><br />
+          <br />
+          <button onclick="valiform()" type="button" class="buton">
+            Sign up
+          </button>
+        </form>
+      </div>
+    </div>
+    <script>
+      // first name validation----
+      function validateFname() {
+        let fnameElement = document.getElementById("firstName");
+        let fnameError = document.getElementById("fnameErr");
+        let fnameValue = fnameElement.value.trim();
+
+        if (!/^[a-zA-Z]*$/g.test(fnameValue)) {
+          fnameError.textContent = "* First name allows only alphabets";
+          fnameElement.style.border = "1px solid red";
+          fnameElement.style.backgroundColor = "#f5baba";
+        } else if (fnameValue == "") {
+          fnameError.textContent = "";
+          fnameElement.style.border = "none";
+          fnameElement.style.backgroundColor = "#e0dede";
+        } else if (fnameValue.length < 3 || fnameValue.length > 11) {
+          fnameError.textContent = "* Length should between (3-10)";
+          fnameElement.style.border = "1px solid red";
+          fnameElement.style.backgroundColor = "#f5baba";
+        } else {
+          fnameError.textContent = "";
+          fnameElement.style.border = "1px solid green";
+          fnameElement.style.backgroundColor = "#baf5bf";
+        }
+      }
+
+      // last name validation----
+      function validateLname() {
+        let lnameElement = document.getElementById("lastName");
+        let lnameError = document.getElementById("lnameErr");
+        let lnameValue = lnameElement.value.trim();
+
+        if (!/^[a-zA-Z]*$/g.test(lnameValue)) {
+          lnameError.textContent = "* last name allows only alphabets";
+          lnameElement.style.border = "1px solid red";
+          lnameElement.style.backgroundColor = "#f5baba";
+        } else if (lnameValue == "") {
+          lnameError.textContent = "";
+          lnameElement.style.border = "none";
+          nameElement.style.backgroundColor = "#e0dede";
+        } else if (lnameValue.length < 3 || lnameValue.length > 11) {
+          lnameError.textContent = "* Length should between (3-10)";
+          lnameElement.style.border = "1px solid red";
+          lnameElement.style.backgroundColor = "#f5baba";
+        } else {
+          lnameError.textContent = "";
+          lnameElement.style.border = "1px solid green";
+          lnameElement.style.backgroundColor = "#baf5bf";
+        }
+      }
+
+      //phone number validation----
+      function validatePhone() {
+        let phoneElement = document.getElementById("phoneNumber");
+        let phoneError = document.getElementById("numberErr");
+        let phoneValue = phoneElement.value.trim();
+
+        if (phoneValue.length == 0) {
+          phoneElement.style.border = "none";
+          phoneError.textContent = "";
+          phoneElement.style.backgroundColor = "#e0dede";
+          return false;
+        }
+
+        if (phoneValue.length == 10) {
+          phoneElement.style.border = "1px solid green";
+          phoneError.textContent = "";
+          phoneElement.style.backgroundColor = "#baf5bf";
+        } else {
+          phoneElement.style.border = "1px solid red";
+          phoneError.textContent = "* Enter a valid mobile number";
+          phoneElement.style.backgroundColor = "#f5baba";
+        }
+        let cleanedInput = phoneValue.replace(/\D/g, "");
+        phoneElement.value = cleanedInput;
+
+        // Apply the phone number mask
+        let maskedInput =
+          "(" +
+          cleanedInput.slice(0, 3) +
+          ") " +
+          cleanedInput.slice(3, 6) +
+          "-" +
+          cleanedInput.slice(6, 10);
+
+        // Update the input value with the masked version
+        if (phoneValue > 9) {
+          phoneElement.value = maskedInput;
+          return false;
+        }
+      }
+
+      // eamil id validation--
+      function validateEmail() {
+        const emailInput = document.getElementById("emailId");
+        const emailError = document.getElementById("emailErr");
+
+        var email = emailInput.value.trim();
+
+        var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+        if (emailRegex.test(email)) {
+          // Valid email address
+          emailError.textContent = "";
+          emailInput.style.border = "1px solid green";
+          emailInput.style.backgroundColor = "#baf5bf";
+        } else if (email == "") {
+          emailError.textContent = "";
+          emailInput.style.border = "none";
+          emailInput.style.backgroundColor = "#e0dede";
+        } else {
+          // Invalid email address
+          emailError.textContent = "Invalid email address";
+          emailInput.style.border = "1px solid red";
+          emailInput.style.backgroundColor = "#f5baba";
+        }
+      }
+
+      // password validation----
+      function validatePass() {
+        let passEle = document.getElementById("passwordF");
+        let passError = document.getElementById("passwordErr");
+        let passValue = passEle.value.trim();
+        var regex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*]).{8,15}$/;
+
+        if (regex.test(passValue)) {
+          passEle.style.border = "1px solid green";
+          passError.textContent = "";
+          passEle.style.backgroundColor = "#baf5bf";
+        } else if (passValue == "") {
+          passError.textContent = "";
+          passEle.style.border = "none";
+          passEle.style.backgroundColor = "#e0dede";
+        } else {
+          passEle.style.border = "1px solid red";
+          passError.textContent = "* use password like(Abc@12345)";
+          passEle.style.backgroundColor = "#f5baba";
+        }
+      }
+
+      //confirm password validation----
+      function validatePassC() {
+        let passEle = document.getElementById("passwordC");
+        let passError = document.getElementById("cpasswordErr");
+        let cpassValue = passEle.value.trim();
+        let passValue = document.getElementById("passwordF").value.trim();
+
+        if (cpassValue == passValue) {
+          passEle.style.border = "1px solid green";
+          passError.textContent = "";
+          passEle.style.backgroundColor = "#baf5bf";
+        } else if (cpassValue == "") {
+          passError.textContent = "";
+          passEle.style.border = "none";
+          passEle.style.backgroundColor = "#e0dede";
+        } else {
+          passEle.style.border = "1px solid red";
+          passError.textContent = "* password not matched";
+          passEle.style.backgroundColor = "#f5baba";
+        }
+      }
+    </script>
+  </body>
+</html>

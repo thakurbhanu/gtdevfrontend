@@ -1,0 +1,13 @@
+.m-head{
+    color: aqua;
+}
+.img1{
+    height: 200px;
+}
+th,td{
+    border: 1px solid black;
+    border-radius: 10px;
+}
+table{
+    width: 100%;
+}

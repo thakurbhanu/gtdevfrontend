@@ -1,0 +1,157 @@
+.first-container{
+    background-image: url(https://i.ibb.co/44w6x5g/project1-1.png);
+    background-size: cover;
+    border: 5px solid blue;
+    border-radius: 10px;
+    padding: 40px 10px 40px 10px;
+    outline: 10px solid red;
+    outline-offset: 10px;
+    margin: 50px;
+}
+.first-head{
+    color: aqua;
+    text-align: center;
+}
+body{
+    background-color: black;
+}
+.first-para{
+    color: #ffffff;
+    background-color: black;
+    margin: 20px;
+    padding: 20px;
+}
+.secomd-para{
+ text-decoration: underline;
+ text-transform: uppercase;
+ background-color: red;
+ letter-spacing: 5px;
+ word-spacing: 10px;
+
+}
+.third-para{
+    text-indent: 30px;
+}
+i{
+    margin: 20px;
+    font-size: 100px;
+    border: solid black 2px;
+    border-radius: 15px;
+    padding: 30px;
+    color: blue;
+    background-color: #ffffff;
+}
+.fourth-para{
+    font-family: 'Young Serif', serif;
+}
+a:link{
+    color: blue;
+
+}
+a:visited{
+    color:purple;
+}
+
+a:hover{
+    color: green;
+    font-size: 20px;
+}
+
+a:active{
+    color: red;
+}
+.list-sec{
+    background-color: #ffffff;
+    border-radius: 10px;
+    margin: 20px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+.ol1{
+    list-style-position: outside;
+    padding: 20px;
+    background: #678957;
+    
+}
+.ul2{
+    list-style-position: inside;
+    padding: 20px;
+    background: #678957;
+    list-style-image: url(service1.png) ;
+}
+.ol1 li{
+    background: #ffe5e5;
+    color: darkred;
+    margin: 5px;
+    margin-left: 30px;
+}
+.ul2 li{
+    background: #ffe5e5;
+    color: darkred;
+    padding: 5px;
+   margin-left: 30px;
+}
+.third-para{
+    visibility: hidden;
+}
+.secomd-para{
+    display: none;
+}
+.go-to-top{
+    position: fixed;
+    right: 50px;
+    bottom: 30px;
+    
+}
+.link-sec{
+    position: sticky;
+    top: 0px;
+}
+.list-position{
+    position: relative;
+    margin: 20px;
+}
+.bullet-point{
+    position: relative;
+    background-color: aqua;
+    height: 30px;
+    width: 30px;
+    padding: 15px;
+    border-top-right-radius:10px ;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    z-index: 1;
+
+}
+.line-cont{
+    position: absolute;
+    background-color: brown;
+    height: 30px;
+    padding: 25px 10px 0px 10px;
+    left: 25px;
+    top: 35px;
+    border-radius: 10px;
+}
+.table-sec{
+    margin: 50px;
+
+}
+table {
+    
+    border-collapse: collapse;
+
+}
+td{
+    border: 1px solid black;
+    padding: 20px;
+}
+tr:nth-child(even){
+   background-color: aquamarine;
+
+}
+tr:hover{
+    background-color: aqua;
+}
+th:hover{
+    background-color: transparent;
+}

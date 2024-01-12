@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>
+        error handling;
+    </h1>
+     <script>
+        let a = 3
+        let b = 5
+
+        console.log(a+b);
+        try {
+            console.log(c);    
+        } catch (error) {
+            console.log(error);
+        }
+        
+        console.log(a);
+        console.log(b);
+
+
+        var x=prompt("Enter a number between 5 and 10:",""); 
+            try 
+            {  
+            if(x>10) 
+            { 
+            throw "Err1"; 
+            } 
+            else if(x<5) 
+            { 
+            throw "Err2"; 
+            } 
+            else if(isNaN(x)) 
+            { 
+            throw "Err3"; 
+            } 
+            }
+            
+            
+            catch(err) 
+            { 
+            if(err=="Err1") 
+            { 
+            document.write("Error! The value is too high."); 
+            } 
+            if(err=="Err2") 
+            { 
+            document.write("Error! The value is too low."); 
+            } 
+            if(err=="Err3") 
+            { 
+            document.write("Error! The value is not a number."); 
+            } 
+            } 
+
+    </script>
+</body>
+</html>
