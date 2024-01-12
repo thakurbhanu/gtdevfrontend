@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width, initial-scale=1.0" />
+    <title>form validation(Show error beside input)</title>
+    <style>
+      .bg-signup {
+        background-image: linear-gradient(
+          rgb(12, 129, 158),
+          rgb(242, 242, 247),
+          rgb(12, 129, 158)
+        );
+        background-size: cover;
+        height: 100vh;
+        text-align: center;
+        font-family: sans-serif;
+      }
+      .signup-card {
+        color: white;
+        /* background-image: linear-gradient(black, rgb(12, 129, 158), black); */
+        background-color: #fff;
+        width: 500px;
+        height: 710px;
+        margin-top: 50px;
+        border-radius: 10px;
+        box-shadow: 5px 20px 50px black;
+      }
+      .flex-container {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+      }
+      .buton {
+        width: 35%;
+        height: 40px;
+        margin-top: 20px;
+        margin-left: 10px;
+        justify-content: center;
+        color: #fff;
+        background: rgb(12, 129, 158);
+        font-size: 1em;
+        font-weight: bold;
+        margin-top: 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+      input {
+        width: 40%;
+        height: 20px;
+        background: rgb(183, 181, 181);
+        display: flex;
+        margin-top: 10px;
+        margin-left: 20px;
+        padding: 10px;
+        border: none;
+        outline: none;
+        border-radius: 5px;
+        display: inline;
+      }
+      span {
+        color: rgb(165, 0, 0);
+        margin: 5px;
+        font-size: 12px;
+      }
+      .tc {
+        position: relative;
+        left: -25%;
+        top: 20px;
+        font-size: 12px;
+      }
+      #checkBox {
+        position: relative;
+        left: -8%;
+        top: 22px;
+        height: 15px;
+      }
+      label {
+        display: inline;
+        color: black;
+      }
+      #genderM {
+        height: 15px;
+        position: relative;
+        left: 50px;
+      }
+      #genderF {
+        height: 15px;
+        position: relative;
+        left: -115px;
+      }
+      .cmale {
+        position: relative;
+        left: -35px;
+      }
+      .cfemale {
+        position: relative;
+        left: 250px;
+        top: -25px;
+      }
+      select {
+        margin: 10px 0px 20px 5px;
+      }
+      #chxErr {
+        position: relative;
+        top: 15px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="bg-signup flex-container">
+      <div class="signup-card">
+        <h1 class="sign-head" style="color: rgb(12, 129, 158)">Sign up</h1>
+        <form action="" target="" method="" id="form">
+          <input
+            id="firstName"
+            type="text"
+            name="fname"
+            placeholder="First name"
+          />
+          <br />
+          <span id="fnameErr"></span> <br />
+          <input
+            id="lastName"
+            type="text"
+            name="lname"
+            placeholder="Last name"
+          />
+          <br /><span id="lnameErr"></span> <br />
+          <input
+            id="phoneNumber"
+            type="number"
+            name="phone"
+            placeholder="Phone Number"
+          />
+          <br /><span id="numberErr"></span> <br />
+          <input id="emailId" type="email" name="email" placeholder="Email" />
+          <br /><span id="emailErr"></span> <br />
+          <label class="cityc" for="city">Select your City</label>
+          <select name="cityname" id="city">
+            <option value="Bhind">Bhind</option>
+            <option value="Morena">Morena</option>
+            <option value="gwalior">Gwalior</option>
+          </select>
+          <br />
+          <input
+            id="passwordF"
+            type="password"
+            name="pswd"
+            placeholder="Password"
+          />
+          <br /><span id="passwordErr"></span> <br />
+          <input
+            id="passwordC"
+            type="password"
+            name="cpswd"
+            placeholder="Confirm Password"
+          />
+          <br /><span id="cpasswordErr"></span> <br />
+
+          <input type="radio" required name="gender" id="genderM" />
+          <label class="cmale" for="genderM">Male</label>
+          <input type="radio" required name="gender" id="genderF" />
+          <label class="cfemale" for="genderF">Female</label>
+
+          <input type="checkbox" id="checkBox" />
+          <label class="tc" for="checkBox"> Terms & Conditions</label>
+          <br /><span id="chxErr"></span><br />
+          <button onclick="valiform()" type="button" class="buton">
+            Sign up
+          </button>
+        </form>
+      </div>
+    </div>
+    <script>
+      function valiform() {
+        let a = document.getElementById("firstName").value;
+        let b = document.getElementById("lastName").value;
+        let c = document.getElementById("phoneNumber").value;
+        let d = document.getElementById("emailId").value;
+        let e = document.getElementById("passwordF").value;
+        let f = document.getElementById("passwordC").value;
+        const mailregex = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/;
+
+        // validation for first name
+        if (a == "") {
+          document.getElementById("fnameErr").textContent =
+            "* Please enter First Name";
+          return false;
+        }
+        // first name only alphabet validation
+        if (!/^[a-zA-Z]*$/g.test(a)) {
+          document.getElementById("fnameErr").textContent =
+            "* Name Can't Contain Number";
+
+          return false;
+        }
+        // first name length validation
+        if (a.length < 3) {
+          document.getElementById("fnameErr").textContent =
+            "* First name is too short";
+
+          return false;
+        }
+        // first name length validation
+        if (a.length > 10) {
+          document.getElementById("fnameErr").textContent =
+            "* First name is too long";
+
+          return false;
+        }
+
+        // last name validation
+        if (b == "") {
+          document.getElementById("fnameErr").textContent = "";
+          document.getElementById("lnameErr").textContent =
+            "* Please enter last name";
+
+          return false;
+        }
+
+        // last nam only alphabet validation
+        let regname = /^[a-zA-Z]*$/g;
+        if (!regname.test(b)) {
+          document.getElementById("lnameErr").textContent =
+            "* Name Can't Contain Number";
+
+          return false;
+        }
+
+        // last name length validation
+        if (b.length < 3) {
+          document.getElementById("lnameErr").textContent =
+            "* Last name is too short";
+
+          return false;
+        }
+
+        // last name length validation
+        if (b.length > 10) {
+          document.getElementById("lnameErr").textContent =
+            "* Last name is too long";
+
+          return false;
+        }
+
+        //first & last name match validation
+        if (a == b) {
+          document.getElementById("lnameErr").textContent =
+            "* First & Last name can't be same";
+
+          return false;
+        }
+
+        // phone  number validaton
+        if (c == "") {
+          document.getElementById("lnameErr").textContent = "";
+          document.getElementById("fnameErr").textContent = "";
+          document.getElementById("numberErr").textContent =
+            "* please enter your phone Number";
+
+          return false;
+        }
+
+        // phone number length check
+        if (c.length != 10) {
+          document.getElementById("numberErr").textContent =
+            "* please enter a valid phone number";
+
+          return false;
+        }
+
+        // email id validation
+        if (d == "") {
+          document.getElementById("lnameErr").textContent = "";
+          document.getElementById("fnameErr").textContent = "";
+          document.getElementById("numberErr").textContent = "";
+          document.getElementById("emailErr").textContent =
+            "* please enter Email-ID";
+
+          return false;
+        }
+
+        // email id format chheck
+        if (!mailregex.test(d)) {
+          document.getElementById("emailErr").textContent =
+            "* please enter a valid Email-ID";
+
+          return false;
+        }
+
+        //password validation
+        if (e == "") {
+          document.getElementById("lnameErr").textContent = "";
+          document.getElementById("fnameErr").textContent = "";
+          document.getElementById("numberErr").textContent = "";
+          document.getElementById("emailErr").textContent = "";
+          document.getElementById("passwordErr").textContent =
+            "* create a strong password";
+
+          return false;
+        }
+
+        // Check for minimum length
+        if (e.length < 8) {
+          document.getElementById("passwordErr").textContent =
+            "* Password contain minimum length 8 ";
+
+          return false;
+        }
+
+        // Check for at least one uppercase letter
+        if (!/[A-Z]/.test(e)) {
+          document.getElementById("passwordErr").textContent =
+            "* Enter atleast one uppercase letter";
+
+          return false;
+        }
+
+        // Check for at least one lowercase letter
+        if (!/[a-z]/.test(e)) {
+          document.getElementById("passwordErr").textContent =
+            "* Enter atleast one lowerercase letter";
+
+          return false;
+        }
+
+        // Check for at least one digit
+        if (!/\d/.test(e)) {
+          document.getElementById("passwordErr").textContent =
+            "* Enter atleast one numerical digit";
+
+          return false;
+        }
+
+        // Check for at least one special character
+        if (!/[!@#$%^&*(),.?":{}|<>]/.test(e)) {
+          document.getElementById("passwordErr").textContent =
+            "* Enter atleast one special character  ";
+
+          return false;
+        }
+
+        // confirm password validation
+        if (f == "") {
+          document.getElementById("lnameErr").textContent = "";
+          document.getElementById("fnameErr").textContent = "";
+          document.getElementById("numberErr").textContent = "";
+          document.getElementById("emailErr").textContent = "";
+          document.getElementById("passwordErr").textContent = "";
+          document.getElementById("cpasswordErr").textContent =
+            "* confirm your password";
+
+          return false;
+        }
+
+        // password matching
+        if (e != f) {
+          document.getElementById("cpasswordErr").textContent =
+            "* password not matched";
+          return false;
+        }
+
+        let agree = document.getElementById("checkBox").checked;
+        if (!agree) {
+          document.getElementById("lnameErr").textContent = "";
+          document.getElementById("fnameErr").textContent = "";
+          document.getElementById("numberErr").textContent = "";
+          document.getElementById("emailErr").textContent = "";
+          document.getElementById("passwordErr").textContent = "";
+          document.getElementById("cpasswordErr").textContent = "";
+          document.getElementById("chxErr").textContent =
+            "* agree term & conditions";
+          return false;
+        }
+        // result success------
+        else {
+          document.getElementById("chxErr").textContent = "";
+          document.getElementById("cpasswordErr").textContent = "";
+          document.getElementById("passwordErr").textContent = "";
+          document.getElementById("emailErr").textContent = "";
+          document.getElementById("numberErr").textContent = "";
+          document.getElementById("lnameErr").textContent = "";
+          document.getElementById("fnameErr").textContent = "";
+          confirm(
+            " Is your filled information is correct, Are you sure to submit ?"
+          );
+        }
+      }
+    </script>
+  </body>
+</html>

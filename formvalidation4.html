@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8" />
+    <title>form validation (tooltip)</title>
+    <link
+      rel="stylesheet"
+      href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css"
+    />
+    <link rel="stylesheet" href="/resources/demos/style.css" />
+    <script
+      src="https://kit.fontawesome.com/ce7a0231d9.js"
+      crossorigin="anonymous"
+    ></script>
+    <style>
+      @import url("https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap");
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Poppins", sans-serif;
+      }
+      html,
+      body {
+        display: grid;
+        height: 100%;
+        width: 100%;
+        place-items: center;
+        background: #f2f2f2;
+        /* background: linear-gradient(-135deg, #c850c0, #4158d0);  */
+      }
+      ::selection {
+        background: #4158d0;
+        color: #fff;
+      }
+      .wrapper {
+        width: 380px;
+        background: #fff;
+        border-radius: 15px;
+        box-shadow: 0px 15px 20px rgba(0, 0, 0, 0.1);
+      }
+      .wrapper .title {
+        font-size: 35px;
+        font-weight: 600;
+        text-align: center;
+        line-height: 100px;
+        color: #fff;
+        user-select: none;
+        border-radius: 15px 15px 0 0;
+        background: linear-gradient(-135deg, #c850c0, #4158d0);
+      }
+      .wrapper form {
+        padding: 10px 30px 50px 30px;
+      }
+      .wrapper form .field {
+        height: 50px;
+        width: 100%;
+        margin-top: 20px;
+        position: relative;
+      }
+      .wrapper form .field input {
+        height: 100%;
+        width: 100%;
+        outline: none;
+        font-size: 15px;
+        padding-left: 20px;
+        border: 1px solid lightgrey;
+        border-radius: 25px;
+        transition: all 0.3s ease;
+      }
+      
+      .wrapper form .field label {
+        position: absolute;
+        top: 50%;
+        left: 20px;
+        color: #999999;
+        font-weight: 400;
+        font-size: 17px;
+        pointer-events: none;
+        transform: translateY(-50%);
+        transition: all 0.3s ease;
+      }
+
+      .wrapper form .field label {
+        top: 0%;
+        font-size: 16px;
+        color: #4158d0;
+        background: #fff;
+        border-radius: 5px;
+        padding-left: 5px;
+        padding-right: 5px;
+        transform: translateY(-50%);
+      }
+
+      form .content {
+        display: flex;
+        width: 100%;
+        height: 50px;
+        font-size: 16px;
+        align-items: center;
+        justify-content: space-around;
+      }
+      form .content .checkbox {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      form .content label {
+        color: #262626;
+        user-select: none;
+        padding-left: 5px;
+      }
+
+      form .field input[type="submit"] {
+        color: #fff;
+        border: none;
+        padding-left: 0;
+        margin-top: -10px;
+        font-size: 20px;
+        font-weight: 500;
+        cursor: pointer;
+        background: linear-gradient(-135deg, #c850c0, #4158d0);
+        transition: all 0.3s ease;
+      }
+      form .field input[type="submit"]:active {
+        transform: scale(0.95);
+      }
+
+      .fa-solid {
+        font-size: 20px;
+        cursor: pointer;
+      }
+
+      .fa-circle-exclamation {
+        color: red;
+        position: absolute;
+        top: 17px;
+        right: 15px;
+        display: none;
+      }
+
+      .fa-circle-check {
+        color: green;
+        position: absolute;
+        top: 17px;
+        right: 15px;
+        display: none;
+      }
+      .ui-tooltip {
+        padding: 5px 10px;
+        color: red;
+        border-radius: 20px;
+        font: bold 9px "Helvetica Neue", Sans-Serif;
+
+        box-shadow: 0 0 7px black;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrapper">
+      <div class="title">Registration</div>
+      <form action="#">
+
+        <!--first name -->
+        <div class="field">
+          <input oninput="validateFname()" type="text" id="fname" />
+          <i
+            id="fNameErrLogo1"
+            class="fa-solid fa-circle-exclamation"
+            title="Name have only alphabet leters"
+          ></i>
+          <i
+            id="fNameErrLogo2"
+            class="fa-solid fa-circle-exclamation"
+            title="Name length should bettween (3-21)"
+          ></i>
+          <i id="fNameCrrLogo" class="fa-solid fa-circle-check"></i>
+          <label>Full Name</label>
+        </div>
+
+        <!-- Email input -->
+        <div class="field">
+          <input
+            oninput="validateEmail()"
+            id="emailId"
+            style="padding-right: 43px"
+            type="email"
+          />
+          <i
+            id="emailErrLogo"
+            class="f-name-err-logo fa-solid fa-circle-exclamation"
+            title="Invalid Email (for ex- abc123@gmail.com)"
+          ></i>
+          <i id="emailCrrLogo" class="fa-solid fa-circle-check"></i>
+          <label>Email Address</label>
+        </div>
+
+        <!-- phone number input -->
+        <div class="field">
+          <input oninput="validatePhone()" id="phoneNumber" type="text" />
+          <i
+            id="phoneErrLogo"
+            class="f-name-err-logo fa-solid fa-circle-exclamation"
+            title="Enter a valid phone number"
+          ></i>
+          <i id="phoneCrrLogo" class="fa-solid fa-circle-check"></i>
+          <label>Phone No.</label>
+        </div>
+
+        <!-- password input -->
+        <div class="field">
+          <input oninput="validatePass()" id="passwordF" type="password" />
+          <i
+            id="passNErrLogo"
+            class="f-name-err-logo fa-solid fa-circle-exclamation"
+            title="Create strong password (for ex- Abc@123)"
+          ></i>
+          <i id="passNCrrLogo" class="fa-solid fa-circle-check"></i>
+          <label>Password</label>
+        </div>
+
+        <!-- confirm password input -->
+        <div class="field">
+          <input oninput="validatePassC()" id="passwordC" type="password" />
+          <i
+            id="passCErrLogo"
+            class="f-name-err-logo fa-solid fa-circle-exclamation"
+            title="Confirm password does not match"
+          ></i>
+          <i id="passCCrrLogo" class="fa-solid fa-circle-check"></i>
+          <label>Confirm Password</label>
+        </div>
+        <div class="content">
+          <div class="checkbox">
+            <input type="checkbox" id="remember-me" />
+            <label for="remember-me">Remember me</label>
+          </div>
+        </div>
+        <div class="field">
+          <input type="submit" value="Submit" />
+        </div>
+      </form>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+    <script>
+
+      //first name validation
+      function validateFname() {
+        document.getElementById("fNameErrLogo1").style.display = "none";
+        document.getElementById("fNameErrLogo2").style.display = "none";
+        document.getElementById("fNameCrrLogo").style.display = "none";
+
+        let fnameElement = document.getElementById("fname");
+
+        let fnameValue = fnameElement.value.trim();
+
+        if (!/^[A-Za-z\s]*$/g.test(fnameValue)) {
+          fnameElement.style.border = "1px solid red";
+
+          document.getElementById("fNameErrLogo1").style.display = "block";
+
+          $("#fNameErrLogo1").tooltip({
+            show: {
+              effect: "slideDown",
+              delay: 250,
+            },
+            open: function (event, ui) {
+              ui.tooltip({ top: ui.tooltip.position().top + 10 });
+            },
+          });
+        } else if (fnameValue == "") {
+          fnameElement.style.border = "1px solid lightgrey";
+        } else if (fnameValue.length < 3 || fnameValue.length > 22) {
+          fnameElement.style.border = "1px solid red";
+
+          document.getElementById("fNameErrLogo2").style.display = "block";
+          $("#fNameErrLogo2").tooltip({
+            show: {
+              effect: "slideDown",
+              delay: 250,
+            },
+            open: function (event, ui) {
+              ui.tooltip({ top: ui.tooltip.position().top + 10 });
+            },
+          });
+        } else {
+          fnameElement.style.border = "1px solid green";
+
+          document.getElementById("fNameCrrLogo").style.display = "block";
+        }
+      }
+
+
+      // email validation
+      function validateEmail() {
+        document.getElementById("emailErrLogo").style.display = "none";
+        document.getElementById("emailCrrLogo").style.display = "none";
+        const emailInput = document.getElementById("emailId");
+
+        var email = emailInput.value.trim();
+
+        var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+        if (emailRegex.test(email)) {
+          document.getElementById("emailCrrLogo").style.display = "block";
+          emailInput.style.border = "1px solid green";
+        } else if (email == "") {
+          emailInput.style.border = "1px solid lightgrey";
+        } else {
+          emailInput.style.border = "1px solid red";
+
+          document.getElementById("emailErrLogo").style.display = "block";
+
+          $("#emailErrLogo").tooltip({
+            show: {
+              effect: "slideDown",
+              delay: 250,
+            },
+            open: function (event, ui) {
+              ui.tooltip({ top: ui.tooltip.position().top + 10 });
+            },
+          });
+        }
+      }
+
+
+      // password validation 
+      function validatePass() {
+        document.getElementById("passNErrLogo").style.display = "none";
+        document.getElementById("passNCrrLogo").style.display = "none";
+
+        let passEle = document.getElementById("passwordF");
+
+        let passValue = passEle.value.trim();
+        var regex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*]).{8,15}$/;
+
+        if (regex.test(passValue)) {
+          passEle.style.border = "1px solid green";
+
+          document.getElementById("passNCrrLogo").style.display = "block";
+        } else if (passValue == "") {
+          passEle.style.border = "1px solid lightgrey";
+        } else {
+          passEle.style.border = "1px solid red";
+
+          document.getElementById("passNErrLogo").style.display = "block";
+
+          $("#passNErrLogo").tooltip({
+            show: {
+              effect: "slideDown",
+              delay: 250,
+            },
+            open: function (event, ui) {
+              ui.tooltip({ top: ui.tooltip.position().top + 10 });
+            },
+          });
+        }
+      }
+ 
+
+      //confirm password validation
+      function validatePassC() {
+        document.getElementById("passCErrLogo").style.display = "none";
+        document.getElementById("passCCrrLogo").style.display = "none";
+
+        let passEle = document.getElementById("passwordC");
+
+        let cpassValue = passEle.value.trim();
+        let passValue = document.getElementById("passwordF").value.trim();
+
+        if (cpassValue == "") {
+          passEle.style.border = "1px solid lightgrey";
+
+          document.getElementById("passCErrLogo").style.display = "none";
+          document.getElementById("passCCrrLogo").style.display = "none";
+        } else if (cpassValue == passValue) {
+          passEle.style.border = "1px solid green";
+
+          document.getElementById("passCCrrLogo").style.display = "block";
+        } else {
+          passEle.style.border = "1px solid red";
+
+          document.getElementById("passCErrLogo").style.display = "block";
+
+          $("#passCErrLogo").tooltip({
+            show: {
+              effect: "slideDown",
+              delay: 250,
+            },
+            open: function (event, ui) {
+              ui.tooltip({ top: ui.tooltip.position().top + 10 });
+            },
+          });
+        }
+      }
+
+
+      // phone number validation
+      function validatePhone() {
+        document.getElementById("phoneErrLogo").style.display = "none";
+        document.getElementById("phoneCrrLogo").style.display = "none";
+        let phoneElement = document.getElementById("phoneNumber");
+
+        let phoneValue = phoneElement.value.trim();
+
+        if (phoneValue.length == 0) {
+          phoneElement.style.border = "1px solid lightgrey";
+
+          return false;
+        }
+
+        if (phoneValue.length == 10) {
+          phoneElement.style.border = "1px solid green";
+          document.getElementById("phoneCrrLogo").style.display = "block";
+        } else {
+          phoneElement.style.border = "1px solid red";
+
+          document.getElementById("phoneErrLogo").style.display = "block";
+
+          $("#phoneErrLogo").tooltip({
+            show: {
+              effect: "slideDown",
+              delay: 250,
+            },
+            open: function (event, ui) {
+              ui.tooltip({ top: ui.tooltip.position().top + 10 });
+            },
+          });
+        }
+        let cleanedInput = phoneValue.replace(/\D/g, "");
+        phoneElement.value = cleanedInput;
+
+        // Apply the phone number mask
+        let maskedInput =
+          "(" +
+          cleanedInput.slice(0, 3) +
+          ") " +
+          cleanedInput.slice(3, 6) +
+          "-" +
+          cleanedInput.slice(6, 10);
+
+        // Update the input value with the masked version
+        if (phoneValue > 9) {
+          phoneElement.value = maskedInput;
+          return false;
+        }
+      }
+    </script>
+  </body>
+</html>

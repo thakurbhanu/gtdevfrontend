@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>
+        print numbers 1 to 100;
+    </h1>
+    <h3>find min, max, average, length </h3>
+    
+    <p id="demo1"></p>
+
+    <h5>max num</h5>
+    <p id="demo2"></p>
+
+    <h5>min num</h5>
+    <p id="demo3"></p>
+
+    
+    <h5>length</h5>
+    <p id="demo4"></p>
+
+    <h5>avg num</h5>
+    <p id="demo5"></p>
+
+
+    <script>
+        const allnum = [1];
+        for (let i = 1; i < 100; i++) {
+                allnum[i] = i + 1;
+                
+            }
+            console.log(allnum);
+            document.getElementById("demo1").textContent = allnum;
+            
+
+            // find max number....
+            
+            const maxNum = Math.max(...allnum);
+            console.log(`max number is ${maxNum}`);
+            document.getElementById("demo2").textContent = maxNum;
+
+            // find min number....
+            
+            const minNum = Math.min(...allnum);
+            console.log(`min number is ${minNum}`);
+            document.getElementById("demo3").textContent = minNum;
+
+
+            //find length ......
+            const lent = allnum.length;
+            console.log(`length is ${lent}`);
+            document.getElementById("demo4").textContent = lent;
+
+
+            // find average......
+
+            //const navg = Math.average(...allnum);
+           //console.log(navg);
+            
+            let totalsum = 0;
+            for (let i = 0; i <= allnum.length; i++) {
+                totalsum += i;   
+            }
+            
+            let average = totalsum / lent;
+            console.log(`Average is ${average}`);
+            document.getElementById("demo5").textContent = average;
+
+           //const navg = Math.average(...allnum);
+           //console.log(navg);
+
+           const ff = [3,5,7,9,0];
+           ff.forEach(element => {
+            console.log(element);
+           });
+
+
+            
+
+
+        
+    </script>
+</body>
+</html>
